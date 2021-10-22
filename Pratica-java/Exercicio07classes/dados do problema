@@ -1,0 +1,143 @@
+- Caracteristica dos lutadores;
+nome
+nacionalidade
+idade
+altura
+peso
+categoria
+vitorias
+derrotas
+empates
+
+Lutador 1
+nome Pretty Boy
+nacionalidade França
+idade 31
+altura 1.75
+peso 68.9
+categoria Leve
+vitorias 11
+derrotas 2
+empates 1
+
+=/=/=/=/=/=/=/=/
+
+Lutador 2
+nome Putscript
+nacionalidade Brasil
+idade 29
+altura 1.68
+peso 57.8
+categoria Leve
+vitorias 14
+derrotas 2
+empates 3
+
+=/=/=/=/=/=/=/=/
+
+Lutador 3
+nome Snapshadow
+nacionalidade EUA
+idade 35
+altura 1.65
+peso 80.9
+categoria Médio
+vitorias 12
+derrotas 2
+empates 1
+
+=/=/=/=/=/=/=/=/
+
+Lutador 4
+nome Dead Code
+nacionalidade Austrália
+idade 28
+altura 1.93
+peso 81.6
+categoria Médio
+vitorias 13
+derrotas 0
+empates 2
+
+=/=/=/=/=/=/=/=/
+
+Lutador 5
+nome Ufocobol
+nacionalidade Brasil
+idade 37
+altura 1.70
+peso 119.3
+categoria Pesado
+vitorias 5
+derrotas 4
+empates 3
+
+=/=/=/=/=/=/=/=/
+
+Lutador 6
+nome Nerdaard
+nacionalidade EUA
+idade 30
+altura 1.81
+peso 105.7
+categoria Pesado
+vitorias 12
+derrotas 2
+empates 4
+
+=/=/=/=/=/=/=/=/
+
+
+classe Luta
+// atributos
+privado desafiado: Lutador
+privado desafiante: Lutador
+privado rounds: inteiro
+privado aprovada: lógico
+//metodos
+publico metodo marcarLuta(L1,L2 : lutador)
+	se (l1.getcategoria() == l2.getcategoria()) && (l1!=l2)
+	aprovada = true
+	desafiado = l1
+	desafiado = l2
+	se não
+	aprovada = falso
+	desafiado = nulo
+	desafiante = nulo
+	fimSe
+fim metodo
+
+publico metodo lutar()
+	se (aprovada == true) 
+		desafiado.apresentar()
+		desafiante.apresentar()
+		vencedor = aleatorio(0..2)
+	escolha (vencedor)
+		caso 0: // empate
+			escreva("Empatou");
+			desafiado.empatarLuta()
+			desafiante.empatarLuta()
+		caso 1: // ganhou desafiado
+			escreva(desafiado.getNome())
+			desafiado.ganharLuta()
+			desafiante.perderLuta()
+		caso 2: // ganhou desafiante
+			escreva(desafiante.getNome())
+			desafiado.perderLuta()
+			desafiante.ganharLuta()
+	senão
+		Escreva("luta não pode acontecer")
+	fimSE
+		
+fim metodo
+
+***Regras da luta***
+só pode marcar com lutadores de mesma categoria
+só pode marcar lutas com lutadores diferentes
+a luta precisa estar aprovada
+só pode ter vitoria ou empate
+
+
+UEC01 = new Luta();
+UEC01.marcarLuta(L[0], L[1]);
+UEC01.lutar(); 
