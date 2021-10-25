@@ -6,6 +6,11 @@ package VIEW;
 
 import DAO.CiclistaDAO;
 import DTO.CiclistaDTO;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -35,7 +40,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtG_Ciclista = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaCiclista = new javax.swing.JTable();
+        btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +62,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaCiclista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,7 +73,14 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaCiclista);
+
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,7 +90,10 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPesquisar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)
@@ -97,7 +113,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtG_Ciclista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(btnCadastrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnPesquisar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -123,6 +141,11 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         CiclistaDAO objciclistadao = new CiclistaDAO();
         objciclistadao.cadastrarCiclista(objciclistadto);
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        listarValoresCiclista();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,11 +184,37 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaCiclista;
     private javax.swing.JTextField txtCiclista;
     private javax.swing.JTextField txtG_Ciclista;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresCiclista(){
+        try {
+            CiclistaDAO objciclistadao = new CiclistaDAO();
+            DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
+            
+            for (int num = 0 ; num < lista.size() ; num++) {
+                model.addRow(new Object[]{
+                    lista.get(num).getId_usuario(),
+                    lista.get(num).getNome_ciclista(),
+                    lista.get(num).getNome_g_ciclista()
+                });
+                
+            }
+                
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "frmPrincipalVIEW - listarValoresVIEW" + erro);
+        }
+        
+    }
+    
 }

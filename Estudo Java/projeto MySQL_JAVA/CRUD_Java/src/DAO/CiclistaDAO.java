@@ -22,7 +22,6 @@ public class CiclistaDAO {
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<CiclistaDTO> lista = new ArrayList<>();
-    
 
     public void cadastrarCiclista(CiclistaDTO objciclistadto) {
         String sql = "insert into ciclista (nome_ciclista,grupo_ciclista) values (?,?)";
@@ -40,27 +39,27 @@ public class CiclistaDAO {
         }
 
     }
-    
-    public ArrayList<CiclistaDTO> PesquisarCiclista(){
+
+    public ArrayList<CiclistaDTO> PesquisarCiclista() {
         String sql = "select * from ciclista";
-        
+        conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            
+            rs = pstm.executeQuery(sql);
+
             while (rs.next()) {
                 CiclistaDTO objciclistadto = new CiclistaDTO();
                 objciclistadto.setId_usuario(rs.getInt("id_usuario"));
                 objciclistadto.setNome_ciclista(rs.getString("nome_ciclista"));
                 objciclistadto.setNome_g_ciclista(rs.getString("grupo_ciclista"));
-                
+
                 lista.add(objciclistadto);
-                
+
             }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null,"CiclistaDAO Pesquisar" + erro);
+            JOptionPane.showMessageDialog(null, "CiclistaDAO Pesquisar" + erro);
         }
-        
+
         return lista;
     }
 }
