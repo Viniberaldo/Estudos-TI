@@ -35,8 +35,8 @@ public class frmLoginVIEW extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNomeUsuario = new javax.swing.JTextField();
+        txtSenhaUsuario = new javax.swing.JTextField();
         btnLogarSistema = new javax.swing.JButton();
-        txtSenhaUsuario = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,11 +85,7 @@ public class frmLoginVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarSistemaActionPerformed
-        Logar();           
-    }//GEN-LAST:event_btnLogarSistemaActionPerformed
-
-    public void Logar(){
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         try {
             String nome_usuario = txtNomeUsuario.getText();
             String senha_usuario = txtSenhaUsuario.getText();
@@ -115,8 +111,13 @@ public class frmLoginVIEW extends javax.swing.JFrame {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "frmLoginVIEW" + erro);
             
-        }   
-    }
+        }
+        
+        
+        
+                
+    }//GEN-LAST:event_btnLogarSistemaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -157,6 +158,6 @@ public class frmLoginVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JPasswordField txtSenhaUsuario;
+    private javax.swing.JTextField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 }
