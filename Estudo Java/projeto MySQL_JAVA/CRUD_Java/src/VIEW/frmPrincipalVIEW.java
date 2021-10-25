@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author viniberaldo
@@ -42,6 +41,11 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaCiclista = new javax.swing.JTable();
         btnPesquisar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnCarregarDados = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +74,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Ciclista", "Grupo"
             }
         ));
         jScrollPane1.setViewportView(tabelaCiclista);
@@ -82,6 +86,32 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Código");
+
+        txtCodigo.setText(" ");
+        txtCodigo.setEnabled(false);
+
+        btnCarregarDados.setText("Carregar dados");
+        btnCarregarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarDadosActionPerformed(evt);
+            }
+        });
+
+        btnLimpar.setText("Limpar dados");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,36 +119,53 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCarregarDados)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpar))
+                    .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCadastrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPesquisar))
+                        .addComponent(btnPesquisar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)
                         .addComponent(txtCiclista, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                        .addComponent(txtG_Ciclista)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(txtG_Ciclista))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap(114, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(txtCiclista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(txtG_Ciclista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
-                    .addComponent(btnPesquisar))
+                    .addComponent(btnPesquisar)
+                    .addComponent(btnEditar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCarregarDados)
+                    .addComponent(btnLimpar))
+                .addContainerGap())
         );
 
         pack();
@@ -130,22 +177,31 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        String ciclista, g_ciclista;
-        ciclista = txtCiclista.getText();
-        g_ciclista = txtG_Ciclista.getText();
-        
-        CiclistaDTO objciclistadto = new CiclistaDTO();
-        objciclistadto.setNome_ciclista(ciclista);
-        objciclistadto.setNome_g_ciclista(g_ciclista);
-        
-        CiclistaDAO objciclistadao = new CiclistaDAO();
-        objciclistadao.cadastrarCiclista(objciclistadto);
+        cadastrarCiclista();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
         listarValoresCiclista();
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnCarregarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarDadosActionPerformed
+        // TODO add your handling code here:
+        carregarCampos();
+    }//GEN-LAST:event_btnCarregarDadosActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        limparCampos();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        editarDados();
+        listarValoresCiclista();
+
+
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,37 +240,87 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnCarregarDados;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaCiclista;
     private javax.swing.JTextField txtCiclista;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtG_Ciclista;
     // End of variables declaration//GEN-END:variables
 
-    private void listarValoresCiclista(){
+    private void listarValoresCiclista() {
         try {
             CiclistaDAO objciclistadao = new CiclistaDAO();
             DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
             model.setNumRows(0);
-            
+
             ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
-            
-            for (int num = 0 ; num < lista.size() ; num++) {
+
+            for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
                     lista.get(num).getId_usuario(),
                     lista.get(num).getNome_ciclista(),
                     lista.get(num).getNome_g_ciclista()
                 });
-                
+
             }
-                
-            
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW - listarValoresVIEW" + erro);
         }
-        
+
     }
-    
+
+    private void carregarCampos() {
+        int sel = tabelaCiclista.getSelectedRow();
+
+        txtCodigo.setText(tabelaCiclista.getModel().getValueAt(sel, 0).toString());
+        txtCiclista.setText(tabelaCiclista.getModel().getValueAt(sel, 1).toString());
+        txtG_Ciclista.setText(tabelaCiclista.getModel().getValueAt(sel, 2).toString());
+    }
+
+    private void cadastrarCiclista() {
+        String ciclista, g_ciclista;
+        ciclista = txtCiclista.getText();
+        g_ciclista = txtG_Ciclista.getText();
+
+        CiclistaDTO objciclistadto = new CiclistaDTO();
+        objciclistadto.setNome_ciclista(ciclista);
+        objciclistadto.setNome_g_ciclista(g_ciclista);
+
+        CiclistaDAO objciclistadao = new CiclistaDAO();
+        objciclistadao.cadastrarCiclista(objciclistadto);
+    }
+
+    private void limparCampos() {
+        txtCodigo.setText("");
+        txtCiclista.setText("");
+        txtG_Ciclista.setText("");
+        txtCiclista.requestFocus();
+    }
+
+    private void editarDados() {
+        int id_usuario;
+        String nome_ciclista, nome_g_ciclista;
+
+        id_usuario = Integer.parseInt(txtCodigo.getText());
+        nome_ciclista = txtCiclista.getText();
+        nome_g_ciclista = txtG_Ciclista.getText();
+
+        CiclistaDTO objciclistadto = new CiclistaDTO();
+        objciclistadto.setId_usuario(id_usuario);
+        objciclistadto.setNome_ciclista(nome_ciclista);
+        objciclistadto.setNome_g_ciclista(nome_g_ciclista);
+
+        CiclistaDAO objciclistadao = new CiclistaDAO();
+        objciclistadao.editarCiclista(objciclistadto);
+        
+
+    }
+
 }

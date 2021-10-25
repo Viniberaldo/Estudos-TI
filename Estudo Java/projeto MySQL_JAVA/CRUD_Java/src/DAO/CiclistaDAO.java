@@ -25,8 +25,8 @@ public class CiclistaDAO {
 
     public void cadastrarCiclista(CiclistaDTO objciclistadto) {
         String sql = "insert into ciclista (nome_ciclista,grupo_ciclista) values (?,?)";
-
         conn = new ConexaoDAO().conectaBD();
+        
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objciclistadto.getNome_ciclista());
@@ -34,7 +34,7 @@ public class CiclistaDAO {
             pstm.execute();
             pstm.close();
 
-        } catch (Exception erro) {
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Funcionário DAO Cadastrar" + erro);
         }
 
@@ -61,5 +61,23 @@ public class CiclistaDAO {
         }
 
         return lista;
+    }
+    
+    public void editarCiclista(CiclistaDTO objciclistadto) {
+        String sql = "update ciclista set nome_ciclista = ?, grupo_ciclista = ? where id_usuario = ?";
+        conn = new ConexaoDAO().conectaBD();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objciclistadto.getNome_ciclista());
+            pstm.setString(2, objciclistadto.getNome_g_ciclista());
+            pstm.setInt(3, objciclistadto.getId_usuario());
+            
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Funcionário DAO Alterar" + erro);
+        }
     }
 }
