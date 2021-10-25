@@ -187,7 +187,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void btnCarregarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarDadosActionPerformed
         // TODO add your handling code here:
-        carregarCampos();
+        try {
+            carregarCampos();
+        } catch (ArrayIndexOutOfBoundsException erro) {
+            JOptionPane.showMessageDialog(null, "Clique em Pesquisar para carregar os dados e depois escolha a linha para carregar");
+        }
+        
+        
     }//GEN-LAST:event_btnCarregarDadosActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -197,8 +203,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        editarDados();
-        listarValoresCiclista();
+        try {
+            editarDados();
+            listarValoresCiclista(); 
+        } catch (NumberFormatException erro) {
+            JOptionPane.showMessageDialog(null,"Campo vazio");
+        }
+        
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -255,23 +266,17 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void listarValoresCiclista() {
-        try {
-            CiclistaDAO objciclistadao = new CiclistaDAO();
-            DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
-            model.setNumRows(0);
-
-            ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
-
-            for (int num = 0; num < lista.size(); num++) {
-                model.addRow(new Object[]{
-                    lista.get(num).getId_usuario(),
-                    lista.get(num).getNome_ciclista(),
-                    lista.get(num).getNome_g_ciclista()
-                });
-
-            }
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "frmPrincipalVIEW - listarValoresVIEW" + erro);
+        CiclistaDAO objciclistadao = new CiclistaDAO();
+        DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
+        model.setNumRows(0);
+        ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
+        for (int num = 0; num < lista.size(); num++) {
+            model.addRow(new Object[]{
+                lista.get(num).getId_usuario(),
+                lista.get(num).getNome_ciclista(),
+                lista.get(num).getNome_g_ciclista()
+            });
+            
         }
 
     }
