@@ -25,7 +25,10 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     public frmPrincipalVIEW() {
         initComponents();
         listarValoresCiclista();
+<<<<<<< HEAD
         restaurarDadosComboBoxTamCam();
+=======
+>>>>>>> main
     }
 
     /**
