@@ -10,8 +10,10 @@ package DTO;
  */
 public class CiclistaDTO {
     private String nome_ciclista, nome_g_ciclista;
-    private int id_usuario;
+    private int id_usuario, cod_cam;
 
+    
+    
     /**
      * @return the nome_ciclista
      */
@@ -53,5 +55,13 @@ public class CiclistaDTO {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
-    
+
+    public int getCod_cam() {
+        return cod_cam;
+    }
+
+    public void setCod_cam(int cod_cam) {
+        this.cod_cam = cod_cam;
+    }
+
 }

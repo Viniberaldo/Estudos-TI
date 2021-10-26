@@ -81,7 +81,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Ciclista", "Grupo"
+                "Código", "Ciclista", "Grupo" , "Tamanho Camiseta"
             }
         ));
         jScrollPane1.setViewportView(tabelaCiclista);
@@ -344,12 +344,16 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void cadastrarCiclista() {
         String ciclista, g_ciclista;
+        int cod_cam;
+        //recebendo dados do formulário
         ciclista = txtCiclista.getText();
         g_ciclista = txtG_Ciclista.getText();
-
+        cod_cam = id_tam_camiseta.get(cbxTamCam.getSelectedIndex());
+        //mandando dados para o pacote de transferência (DTO)
         CiclistaDTO objciclistadto = new CiclistaDTO();
         objciclistadto.setNome_ciclista(ciclista);
         objciclistadto.setNome_g_ciclista(g_ciclista);
+        objciclistadto.setCod_cam(cod_cam);
 
         CiclistaDAO objciclistadao = new CiclistaDAO();
         objciclistadao.cadastrarCiclista(objciclistadto);

@@ -5,6 +5,7 @@
 package DAO;
 
 import DTO.CiclistaDTO;
+import DTO.TamCamisetaDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,13 +25,14 @@ public class CiclistaDAO {
     ArrayList<CiclistaDTO> lista = new ArrayList<>();
 
     public void cadastrarCiclista(CiclistaDTO objciclistadto) {
-        String sql = "insert into ciclista (nome_ciclista,grupo_ciclista) values (?,?)";
+        String sql = "insert into ciclista (nome_ciclista,grupo_ciclista, cod_cam) values (?,?,?)";
         conn = new ConexaoDAO().conectaBD();
         
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objciclistadto.getNome_ciclista());
             pstm.setString(2, objciclistadto.getNome_g_ciclista());
+            pstm.setInt(3, objciclistadto.getCod_cam());
             pstm.execute();
             pstm.close();
 
@@ -52,6 +54,7 @@ public class CiclistaDAO {
                 objciclistadto.setId_usuario(rs.getInt("id_usuario"));
                 objciclistadto.setNome_ciclista(rs.getString("nome_ciclista"));
                 objciclistadto.setNome_g_ciclista(rs.getString("grupo_ciclista"));
+                //objciclistadto.setDesc_tam_camiseta(rs.getString("desc_tam_camiseta"));
 
                 lista.add(objciclistadto);
 
