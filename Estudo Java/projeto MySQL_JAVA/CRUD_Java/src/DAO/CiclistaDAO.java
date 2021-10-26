@@ -54,7 +54,7 @@ public class CiclistaDAO {
                 objciclistadto.setId_usuario(rs.getInt("id_usuario"));
                 objciclistadto.setNome_ciclista(rs.getString("nome_ciclista"));
                 objciclistadto.setNome_g_ciclista(rs.getString("grupo_ciclista"));
-                //objciclistadto.setDesc_tam_camiseta(rs.getString("desc_tam_camiseta"));
+                objciclistadto.setCod_cam(rs.getInt("cod_cam"));
 
                 lista.add(objciclistadto);
 

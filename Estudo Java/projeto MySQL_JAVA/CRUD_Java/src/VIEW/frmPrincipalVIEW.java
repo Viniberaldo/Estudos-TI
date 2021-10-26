@@ -329,7 +329,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 lista.get(num).getId_usuario(),
                 lista.get(num).getNome_ciclista(),
-                lista.get(num).getNome_g_ciclista()
+                lista.get(num).getNome_g_ciclista(),
+                lista.get(num).getCod_cam()
             });
             
         }
