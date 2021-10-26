@@ -25,10 +25,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     public frmPrincipalVIEW() {
         initComponents();
         listarValoresCiclista();
-<<<<<<< HEAD
+
         restaurarDadosComboBoxTamCam();
-=======
->>>>>>> main
+
     }
 
     /**
@@ -351,7 +350,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         //recebendo dados do formulário
         ciclista = txtCiclista.getText();
         g_ciclista = txtG_Ciclista.getText();
-        cod_cam = id_tam_camiseta.get(cbxTamCam.getSelectedIndex());
+        cod_cam = id_tam_camiseta.get(cbxTamCam.getSelectedIndex()-1);
         //mandando dados para o pacote de transferência (DTO)
         CiclistaDTO objciclistadto = new CiclistaDTO();
         objciclistadto.setNome_ciclista(ciclista);
