@@ -5,7 +5,9 @@
 package VIEW;
 
 import DAO.CiclistaDAO;
+import DAO.TamCamisetaDAO;
 import DTO.CiclistaDTO;
+import DTO.TamCamisetaDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.ResultSet;
@@ -55,6 +57,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         cbxTamCam = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,6 +135,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         jLabel4.setText("Tamanho de camiseta");
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,30 +153,26 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(txtCiclista, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                .addComponent(txtG_Ciclista))
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCarregarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbxTamCam, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(txtCiclista, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(txtG_Ciclista))
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(cbxTamCam, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCarregarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,9 +204,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnExcluir)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbxTamCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxTamCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
@@ -230,8 +239,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         } catch (ArrayIndexOutOfBoundsException erro) {
             JOptionPane.showMessageDialog(null, "Clique em Pesquisar para carregar os dados e depois escolha a linha para carregar");
         }
-        
-        
+
+
     }//GEN-LAST:event_btnCarregarDadosActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -243,11 +252,10 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             editarDados();
-            listarValoresCiclista(); 
+            listarValoresCiclista();
         } catch (NumberFormatException erro) {
-            JOptionPane.showMessageDialog(null,"Campo vazio");
+            JOptionPane.showMessageDialog(null, "Campo vazio");
         }
-        
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -259,12 +267,16 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             listarValoresCiclista();
             limparCampos();
         } catch (NumberFormatException erro) {
-            JOptionPane.showMessageDialog(null,"Campo vazio, selecione uma linha para deletar.");
+            JOptionPane.showMessageDialog(null, "Campo vazio, selecione uma linha para deletar.");
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,6 +321,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JComboBox<String> cbxTamCam;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,20 +335,25 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void listarValoresCiclista() {
         CiclistaDAO objciclistadao = new CiclistaDAO();
+        TamCamisetaDAO objtamcamisetadao = new TamCamisetaDAO();
+
         DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
         model.setNumRows(0);
+
         ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
+        //ArrayList<TamcamisetaDTO> listaCam = objtamcamisetadao.vetorCamisetas();
         for (int num = 0; num < lista.size(); num++) {
             model.addRow(new Object[]{
                 lista.get(num).getId_usuario(),
                 lista.get(num).getNome_ciclista(),
                 lista.get(num).getNome_g_ciclista(),
-                lista.get(num).getCod_cam()
-            });
+                lista.get(num).getCod_cam()});
             
+            }
+
         }
 
-    }
+    
 
     private void carregarCampos() {
         int sel = tabelaCiclista.getSelectedRow();
@@ -343,6 +361,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtCodigo.setText(tabelaCiclista.getModel().getValueAt(sel, 0).toString());
         txtCiclista.setText(tabelaCiclista.getModel().getValueAt(sel, 1).toString());
         txtG_Ciclista.setText(tabelaCiclista.getModel().getValueAt(sel, 2).toString());
+        cbxTamCam.setSelectedIndex((int) tabelaCiclista.getModel().getValueAt(sel, 3));
     }
 
     private void cadastrarCiclista() {
@@ -351,7 +370,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         //recebendo dados do formulário
         ciclista = txtCiclista.getText();
         g_ciclista = txtG_Ciclista.getText();
-        cod_cam = id_tam_camiseta.get(cbxTamCam.getSelectedIndex()-1);
+        cod_cam = id_tam_camiseta.get(cbxTamCam.getSelectedIndex() - 1);
         //mandando dados para o pacote de transferência (DTO)
         CiclistaDTO objciclistadto = new CiclistaDTO();
         objciclistadto.setNome_ciclista(ciclista);
@@ -370,50 +389,51 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     }
 
     private void editarDados() {
-        int id_usuario;
+        int id_usuario, cod_cam;
         String nome_ciclista, nome_g_ciclista;
 
         id_usuario = Integer.parseInt(txtCodigo.getText());
         nome_ciclista = txtCiclista.getText();
         nome_g_ciclista = txtG_Ciclista.getText();
+        cod_cam = cbxTamCam.getSelectedIndex();
 
         CiclistaDTO objciclistadto = new CiclistaDTO();
         objciclistadto.setId_usuario(id_usuario);
         objciclistadto.setNome_ciclista(nome_ciclista);
         objciclistadto.setNome_g_ciclista(nome_g_ciclista);
+        objciclistadto.setCod_cam(cod_cam);
 
         CiclistaDAO objciclistadao = new CiclistaDAO();
         objciclistadao.editarCiclista(objciclistadto);
-        
 
     }
-    
-    private void excluirDados(){
+
+    private void excluirDados() {
         int id_usuario = Integer.parseInt(txtCodigo.getText());
-        
+
         CiclistaDTO objciclistadto = new CiclistaDTO();
         objciclistadto.setId_usuario(id_usuario);
-        
+
         CiclistaDAO objciclistadao = new CiclistaDAO();
         objciclistadao.excluirCiclista(objciclistadto);
-                
+
     }
-    
+
     Vector<Integer> id_tam_camiseta = new Vector<Integer>();
-    
+
     public void restaurarDadosComboBoxTamCam() {
         try {
             CiclistaDAO objciclistadao = new CiclistaDAO();
             ResultSet rs = objciclistadao.listarTamCamiseta();
-            
+
             while (rs.next()) {
                 id_tam_camiseta.addElement(rs.getInt(1));
                 cbxTamCam.addItem(rs.getString(2));
             }
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "Carregar tamanho da camiseta - frm"+ erro);
+            JOptionPane.showMessageDialog(null, "Carregar tamanho da camiseta - frm" + erro);
         }
-        
+
     }
 
 }

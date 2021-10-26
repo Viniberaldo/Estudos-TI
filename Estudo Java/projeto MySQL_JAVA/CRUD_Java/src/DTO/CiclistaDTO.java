@@ -9,7 +9,7 @@ package DTO;
  * @author viniberaldo
  */
 public class CiclistaDTO {
-    private String nome_ciclista, nome_g_ciclista;
+    private String nome_ciclista, nome_g_ciclista, desc_cam;
     private int id_usuario, cod_cam;
 
     
@@ -62,6 +62,14 @@ public class CiclistaDTO {
 
     public void setCod_cam(int cod_cam) {
         this.cod_cam = cod_cam;
+    }
+
+    public String getDesc_cam() {
+        return desc_cam;
+    }
+
+    public void setDesc_cam(String desc_cam) {
+        this.desc_cam = desc_cam;
     }
 
 }

@@ -5,7 +5,6 @@
 package DAO;
 
 import DTO.CiclistaDTO;
-import DTO.TamCamisetaDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -67,14 +66,15 @@ public class CiclistaDAO {
     }
     
     public void editarCiclista(CiclistaDTO objciclistadto) {
-        String sql = "update ciclista set nome_ciclista = ?, grupo_ciclista = ? where id_usuario = ?";
+        String sql = "update ciclista set nome_ciclista = ?, grupo_ciclista = ?, cod_cam = ? where id_usuario = ?";
         conn = new ConexaoDAO().conectaBD();
         
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objciclistadto.getNome_ciclista());
             pstm.setString(2, objciclistadto.getNome_g_ciclista());
-            pstm.setInt(3, objciclistadto.getId_usuario());
+            pstm.setInt(3, objciclistadto.getCod_cam());
+            pstm.setInt(4, objciclistadto.getId_usuario());
             
             pstm.execute();
             pstm.close();
