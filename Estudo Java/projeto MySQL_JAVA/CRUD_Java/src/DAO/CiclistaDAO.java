@@ -99,4 +99,17 @@ public class CiclistaDAO {
         
     }
     
+    public ResultSet listarTamCamiseta() throws SQLException{
+        conn = new ConexaoDAO().conectaBD();
+        String sql = "SELECT * FROM camisetas";
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Listar camiseta - funcionárioDAO" + erro);
+        }
+       return pstm.executeQuery();         
+    }
+    
 }
