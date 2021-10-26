@@ -80,4 +80,23 @@ public class CiclistaDAO {
             JOptionPane.showMessageDialog(null, "Funcionário DAO Alterar" + erro);
         }
     }
+    
+    public void excluirCiclista(CiclistaDTO objciclistadto){
+        String sql = "delete from ciclista where id_usuario = ?";
+        conn = new ConexaoDAO().conectaBD();
+        
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, objciclistadto.getId_usuario());
+            
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "CiclistaDAO Excluir" + erro);
+        }
+        
+    }
+    
 }
