@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-10-26T16:35:21.707Z" agent="5.0 (X11)" etag="gV1lbfryyI8DpSiez_65" version="15.5.5" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-26T16:37:00.525Z" agent="5.0 (X11)" etag="8AffqszB1STYcGssaLeE" version="15.5.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="934" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1216" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -119,7 +119,10 @@
           <mxGeometry x="510" y="160" width="172.5" height="100" as="geometry" />
         </mxCell>
         <mxCell id="Q4LxBYm1QheIdCIw7rAj-46" value="&lt;div style=&quot;box-sizing: border-box; width: 100%; background: rgb(228, 228, 228) none repeat scroll 0% 0%; padding: 2px; font-size: 14px;&quot;&gt;camisetas&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/div&gt;&lt;table style=&quot;width: 100%; font-size: 14px;&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;&lt;tbody style=&quot;font-size: 14px;&quot;&gt;&lt;tr style=&quot;font-size: 14px;&quot;&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;PK&amp;nbsp; &lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;id_tam_camiseta&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 14px;&quot;&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;desc_tam_camiseta&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 14px;&quot;&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;fontSize=14;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="850" y="165" width="180" height="90" as="geometry" />
+          <mxGeometry x="760" y="160" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Q4LxBYm1QheIdCIw7rAj-47" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: rgb(228 , 228 , 228) none repeat scroll 0% 0% ; padding: 2px ; font-size: 14px&quot;&gt;usuario&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 14px&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;&lt;tbody style=&quot;font-size: 14px&quot;&gt;&lt;tr style=&quot;font-size: 14px&quot;&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;PK&amp;nbsp; &lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;id_usuario&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 14px&quot;&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;nome_usuario&lt;br&gt;senha_usuario&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 14px&quot;&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/td&gt;&lt;td style=&quot;font-size: 14px&quot;&gt;&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;br style=&quot;font-size: 14px&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;fontSize=14;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1010" y="160" width="180" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
