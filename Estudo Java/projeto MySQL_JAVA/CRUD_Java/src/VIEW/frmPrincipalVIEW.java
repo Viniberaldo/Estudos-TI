@@ -5,15 +5,13 @@
 package VIEW;
 
 import DAO.CiclistaDAO;
-import DAO.TamCamisetaDAO;
 import DTO.CiclistaDTO;
-import DTO.TamCamisetaDTO;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.lang.String;
 
 /**
  *
@@ -225,6 +223,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         cadastrarCiclista();
+        listarValoresCiclista();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -335,25 +334,43 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void listarValoresCiclista() {
         CiclistaDAO objciclistadao = new CiclistaDAO();
-        TamCamisetaDAO objtamcamisetadao = new TamCamisetaDAO();
 
         DefaultTableModel model = (DefaultTableModel) tabelaCiclista.getModel();
         model.setNumRows(0);
 
         ArrayList<CiclistaDTO> lista = objciclistadao.PesquisarCiclista();
-        //ArrayList<TamcamisetaDTO> listaCam = objtamcamisetadao.vetorCamisetas();
         for (int num = 0; num < lista.size(); num++) {
             model.addRow(new Object[]{
                 lista.get(num).getId_usuario(),
                 lista.get(num).getNome_ciclista(),
                 lista.get(num).getNome_g_ciclista(),
                 lista.get(num).getCod_cam()});
-            
+        }
+        for (int i = 0; i < model.getRowCount(); i++) {
+            switch ((model.getValueAt(i,3))) {
+                
+                case 1 -> {
+                    model.setValueAt("PP", i, 3);
+                }
+                case 2 -> {
+                    model.setValueAt("P", i, 3);
+                }
+                case 3 -> {
+                    model.setValueAt("M", i, 3);
+                }
+                case 4 -> {
+                    model.setValueAt("G", i, 3);
+                }
+                case 5 -> {
+                    model.setValueAt("GG", i, 3);
+                }
+                case 6 -> {
+                    model.setValueAt("GGG", i, 3);
+                }
             }
-
         }
 
-    
+    }
 
     private void carregarCampos() {
         int sel = tabelaCiclista.getSelectedRow();
@@ -361,7 +378,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtCodigo.setText(tabelaCiclista.getModel().getValueAt(sel, 0).toString());
         txtCiclista.setText(tabelaCiclista.getModel().getValueAt(sel, 1).toString());
         txtG_Ciclista.setText(tabelaCiclista.getModel().getValueAt(sel, 2).toString());
-        cbxTamCam.setSelectedIndex((int) tabelaCiclista.getModel().getValueAt(sel, 3));
+        cbxTamCam.setSelectedItem(tabelaCiclista.getModel().getValueAt(sel, 3));
     }
 
     private void cadastrarCiclista() {
@@ -385,6 +402,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtCodigo.setText("");
         txtCiclista.setText("");
         txtG_Ciclista.setText("");
+        cbxTamCam.setSelectedIndex(0);
         txtCiclista.requestFocus();
     }
 
