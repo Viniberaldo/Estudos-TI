@@ -39,6 +39,7 @@ public class frmLoginVIEW extends javax.swing.JFrame {
         txtSenhaUsuario = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Acessar sistema de cadastros");
 
         jLabel1.setText("Nome de usuário");
 
