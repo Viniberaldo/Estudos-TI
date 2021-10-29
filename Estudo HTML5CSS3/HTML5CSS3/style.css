@@ -1,0 +1,31 @@
+/*
+Folha de estilo do site pessoal de Vinícius Beraldo
+@author Vinicius Beraldo
+*/
+
+/* phone portrait */
+
+/* phone landscape */
+@media (min-width : 576px){
+    body{
+        background-color:#0ff;
+    }
+}
+/* tablet portrait */
+@media (min-width : 768px){
+    body{
+        background-color:rgb(34, 221, 17);
+    }
+}
+/* tablet landscape */
+@media (min-width : 992px){
+    body{
+        background-color:rgb(255, 201, 51);
+    }
+}
+/* desktop ou notebook */
+@media (min-width : 1170px){
+    body{
+        background-color:rgb(44, 23, 233);
+    }
+}
