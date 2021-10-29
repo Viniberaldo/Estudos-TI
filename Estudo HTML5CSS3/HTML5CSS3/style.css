@@ -3,6 +3,27 @@ Folha de estilo do site pessoal de Vinícius Beraldo
 @author Vinicius Beraldo
 */
 
+/* CSS Reset */
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/* Importação de fontes (Google fonts) */ 
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;900&display=swap');
+
+body{
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 1em;
+}
+
+/* Layout */
+.Container{
+    margin: 0 auto;
+    background-color: chartreuse;
+}
+
 /* phone portrait */
 
 /* phone landscape */
@@ -10,22 +31,41 @@ Folha de estilo do site pessoal de Vinícius Beraldo
     body{
         background-color:#0ff;
     }
+    /* Layout */
+.Container{
+    max-width: 540px;
 }
+
+}
+
+
 /* tablet portrait */
 @media (min-width : 768px){
     body{
         background-color:rgb(34, 221, 17);
     }
+    /* Layout */
+.Container{
+    max-width: 720px;
+}
 }
 /* tablet landscape */
 @media (min-width : 992px){
     body{
         background-color:rgb(255, 201, 51);
     }
+    /* Layout */
+.Container{
+    max-width: 960px;
+}
 }
 /* desktop ou notebook */
 @media (min-width : 1170px){
     body{
         background-color:rgb(44, 23, 233);
     }
+    /* Layout */
+.Container{
+    max-width: 1140px;
+}
 }
