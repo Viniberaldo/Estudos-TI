@@ -24,6 +24,18 @@ body{
     background-color: chartreuse;
 }
 
+.Flex {
+    display:flex;
+    justify-content: center;
+}
+
+/* topo do site */
+#topo {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
 /* phone portrait */
 
 /* phone landscape */
