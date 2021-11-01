@@ -21,7 +21,7 @@ body{
 /* Layout */
 .Container{
     margin: 0 auto;
-    background-color: chartreuse;
+    background-color: #ff0908;
 }
 
 .Flex {
@@ -54,7 +54,7 @@ body{
 /* tablet portrait */
 @media (min-width : 768px){
     body{
-        background-color:rgb(34, 221, 17);
+        background: color #ff0908;;
     }
     /* Layout */
 .Container{
