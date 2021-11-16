@@ -25,5 +25,6 @@
             }
 
         %>
+        <a href="http://localhost:8080/ProjetoBiblioteca/Livro/frmLivroVIEW.html">Voltar</a>
     </body>
 </html>

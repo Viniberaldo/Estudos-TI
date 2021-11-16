@@ -24,7 +24,8 @@
                 objLivroDAO.EditarLivro(objLivroDTO);
             } catch (Exception e) {
             }
-
         %>
+        <a href="http://localhost:8080/ProjetoBiblioteca/Livro/listarLivro.jsp">Listar livro</a> 
+        <a href="http://localhost:8080/ProjetoBiblioteca/Livro/frmLivroVIEW.html">Voltar</a>
     </body>
 </html>
