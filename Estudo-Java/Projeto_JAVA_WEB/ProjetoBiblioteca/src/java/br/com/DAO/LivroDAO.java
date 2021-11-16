@@ -56,4 +56,19 @@ public class LivroDAO {
         }
         return lista;
     } 
+    
+    public void ExcluirLivro(LivroDTO objLivroDTO) throws ClassNotFoundException {
+        String sql = "delete from livro where id_livro= ? ";
+        con = new ConexaoDAO().conexaoBD();
+        
+        try {
+            pstm = con.prepareStatement(sql);
+            pstm.setInt(1, objLivroDTO.getId_livro());
+            
+            pstm.execute();
+            pstm.close();
+            
+        } catch (SQLException e) {
+        }
+    }
 }
