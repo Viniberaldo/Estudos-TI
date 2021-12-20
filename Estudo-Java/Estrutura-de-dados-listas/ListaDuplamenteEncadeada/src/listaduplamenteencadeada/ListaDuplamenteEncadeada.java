@@ -8,13 +8,20 @@ package listaduplamenteencadeada;
  *
  * @author viniberaldo
  */
-public class ListaDuplamenteEncadeada {
+public class ListaDuplamenteEncadeada<T> {
+    
+    private NoDuplo<T> primeiroNo;
+    private NoDuplo<T> ultimoNo;
+    private int tamanhoLista = 0;
+            
+    public ListaDuplamenteEncadeada(){
+        this.primeiroNo = null;
+        this.ultimoNo = null;
+        this.tamanhoLista = 0;
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public int size(){
+        return tamanhoLista;
     }
     
 }
