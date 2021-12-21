@@ -9,46 +9,67 @@ package listaduplamenteencadeada;
  * @author viniberaldo
  */
 public class ListaDuplamenteEncadeada<T> {
-    
+
     private NoDuplo<T> primeiroNo;
     private NoDuplo<T> ultimoNo;
     private int tamanhoLista = 0;
-            
-    public ListaDuplamenteEncadeada(){
+
+    public ListaDuplamenteEncadeada() {
         this.primeiroNo = null;
         this.ultimoNo = null;
         this.tamanhoLista = 0;
     }
-    
-    public T get(int index){
+
+    public T get(int index) {
         return this.getNo(index).getConteudo();
     }
-    
-    public void add(T elemento){
+
+    public void add(T elemento) {
         NoDuplo<T> novoNo = new NoDuplo<>(elemento);
         novoNo.setNoSeguinte(null);
         novoNo.setNoPrevio(ultimoNo);
-        if(primeiroNo == null){
+        if (primeiroNo == null) {
             primeiroNo = novoNo;
         }
-        if(ultimoNo != null){
+        if (ultimoNo != null) {
             ultimoNo.setNoSeguinte(novoNo);
         }
         ultimoNo = novoNo;
         tamanhoLista++;
     }
-    
-    private NoDuplo<T> getNo(int index){
+
+    public void add(int index, T elemento) {
+        NoDuplo<T> noAuxiliar = getNo(index);
+        NoDuplo<T> novoNo = new NoDuplo<>(elemento);
+        novoNo.setNoSeguinte(noAuxiliar);
+
+        if (novoNo.getNoSeguinte() != null) {
+            novoNo.setNoPrevio(noAuxiliar.getNoPrevio());
+            novoNo.getNoSeguinte().setNoPrevio(novoNo);
+        } else {
+            novoNo.setNoPrevio(ultimoNo);
+            ultimoNo = novoNo;
+        }
+
+        if (index == 0) {
+            primeiroNo = novoNo;
+        } else {
+            novoNo.getNoPrevio().setNoSeguinte(novoNo);
+        }
+        tamanhoLista++;
+    }
+
+    private NoDuplo<T> getNo(int index) {
         NoDuplo<T> noAuxiliar = primeiroNo;
-        
-        for(int i=0; (i < index) && (noAuxiliar != null); i++){
+
+        for (int i = 0; (i < index) && (noAuxiliar != null); i++) {
             noAuxiliar = noAuxiliar.getNoSeguinte();
         }
         return noAuxiliar;
     }
 
-    public int size(){
+    public int size() {
         return this.tamanhoLista;
     }
-    
+
 }
