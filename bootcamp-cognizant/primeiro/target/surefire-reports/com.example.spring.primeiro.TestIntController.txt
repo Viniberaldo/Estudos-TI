@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.spring.primeiro.TestIntController
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.037 s <<< FAILURE! - in com.example.spring.primeiro.TestIntController
+testIntComArgumento  Time elapsed: 0.568 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.springframework.test.web.servlet.RequestBuilder.buildRequest(javax.servlet.ServletContext)" because "requestBuilder" is null
+	at com.example.spring.primeiro.TestIntController.testIntComArgumento(TestIntController.java:39)
+
