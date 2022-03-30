@@ -194,7 +194,7 @@ public class GerenciadoraClientesTest_Ex10 {
 		try {
 			gerClientes.validaIdade(cliente.getIdade());
 			fail();
-		} catch (Exception e) {
+		} catch (IdadeNaoPermitidaException e) {
 			/* ========== Verificaes ========== */
 			assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
 		}	
@@ -216,7 +216,7 @@ public class GerenciadoraClientesTest_Ex10 {
 		try {
 			gerClientes.validaIdade(cliente.getIdade());
 			fail();
-		} catch (Exception e) {
+		} catch (IdadeNaoPermitidaException e) {
 			/* ========== Verificaes ========== */
 			assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
 		}	

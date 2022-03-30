@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/viniberaldo/Documents/Estudos-TI/Repositorio-Estudos-TI/Estudo-Java/projeto_MySQL_JAVA/CRUD_Java/src/VIEW/frmPrincipalVIEW.java</file>
+            <file>file:/home/viniberaldo/Documents/Estudos-TI/Repositorio-Estudos-TI/Estudo-Java/projeto_MySQL_JAVA/CRUD_Java/src/DTO/TamCamisetaDTO.java</file>
+            <file>file:/home/viniberaldo/Documents/Estudos-TI/Repositorio-Estudos-TI/Estudo-Java/projeto_MySQL_JAVA/CRUD_Java/src/DAO/ConexaoDAO.java</file>
+        </group>
     </open-files>
 </project-private>

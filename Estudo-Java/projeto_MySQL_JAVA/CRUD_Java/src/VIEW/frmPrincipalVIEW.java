@@ -352,8 +352,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 lista.get(num).getNome_g_ciclista(),
                 lista.get(num).getCod_cam()});
         }
-        for (int i = 0; i < model.getRowCount(); i++) {
-            switch ((model.getValueAt(i,3))) {
+       /** for (int i = 0; i < model.getRowCount(); i++) {
+            switch (model.getValueAt(i,3)) {
                 
                 case 1 -> {
                     model.setValueAt("PP", i, 3);
@@ -374,7 +374,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                     model.setValueAt("GGG", i, 3);
                 }
             }
-        }
+        }*/
 
     }
 

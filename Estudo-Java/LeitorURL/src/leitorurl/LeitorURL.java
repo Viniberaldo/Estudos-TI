@@ -7,14 +7,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+import view.TelaInicial;
 
 public class LeitorURL {
 
     public static void main(String[] args) {
         
-        Scanner objScanner = new Scanner(System.in);
-        System.out.println("Olá, digite o CEP para consulta, somente números: ");
-        String usuarioCEP = objScanner.next();
+        //Scanner objScanner = new Scanner(System.in);
+        //System.out.println("Olá, digite o CEP para consulta, somente números: ");
+        String usuarioCEP = TelaInicial.variavelTransfereCEP;
 
         try {
             String url = "https://viacep.com.br/ws/"+usuarioCEP+"/json/";
