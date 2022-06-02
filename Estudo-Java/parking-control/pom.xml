@@ -11,7 +11,7 @@
 	<groupId>com.api</groupId>
 	<artifactId>parking-control</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>parkingusers.xml.-control</name>
+	<name>parking-control-api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
