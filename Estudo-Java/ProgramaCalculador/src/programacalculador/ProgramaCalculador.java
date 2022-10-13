@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package programacalculador;
 
 /**
- *
- * @author viniberaldo
+ * Programa que faz cálculos diversos para fins de estudo da tecnologia Java.
  */
 public class ProgramaCalculador {
 
@@ -14,7 +9,7 @@ public class ProgramaCalculador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
     }
     
 }

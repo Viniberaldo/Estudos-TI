@@ -5,9 +5,8 @@
 package programacalculador;
 
 /**
- *
- * @author viniberaldo
+ * Menu inicial do programa Calculador.
  */
 public class MenuPrincipal {
-    
+    //TODO: colocar os menus solicitados
 }
