@@ -35,12 +35,23 @@ public class CalculadoraArea extends CalculadoraPadrao {
 
     }
 
+    /**
+     * Calcula a área de um círculo de raio "r"
+     * @param r raio do círculo
+     * @return área do círculo
+     */
     protected Double areaCirculo(int r) {
         Float PI = 3.141516f;
         Double area = super.multiplicar(PI, super.potenciacao(r, 2));
         return Math.floor(area);
     }
 
+    /**
+     * Calcula a área de um quadrilátero
+     * @param a lado a
+     * @param b lado b
+     * @return área do quadrilátero
+     */
     protected Double areaQuadrilatero(int a, int b) {
         Double area = super.multiplicar(a, b);
         return area;
