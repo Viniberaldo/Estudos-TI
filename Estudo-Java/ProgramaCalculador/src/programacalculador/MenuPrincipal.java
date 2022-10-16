@@ -31,11 +31,11 @@ public class MenuPrincipal {
                 calculadoraIMC.iniciar();
                 break;
             case 3:
-                CalculadoraArea calculadoraArea = null;
+                CalculadoraArea calculadoraArea = new CalculadoraArea();
                 calculadoraArea.iniciar();
+                break;
             default:
                 System.out.println("Selecione uma opção válida.");
         }
     }
-    //TODO: colocar os menus solicitados
 }

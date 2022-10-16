@@ -22,23 +22,15 @@ public class CalculadoraArea extends CalculadoraPadrao {
         if (opcao == 1) {
             System.out.println("Insira o raio do círculo: ");
             r = leitor.nextInt();
+            areaCirculo(r);
+        } else {
+            System.out.println("Insira os dois números para a operação: ");
+            var a = leitor.nextInt();
+            var b = leitor.nextInt();
+
+            areaQuadrilatero(a, b);
         }
 
-        System.out.println("Insira os dois números para a operação: ");
-        var a = leitor.nextInt();
-        var b = leitor.nextInt();
-
-        switch (opcao) {
-            case 1 ->
-                areaCirculo(r);
-            case 2 ->
-                areaQuadrilatero(a, b);
-            case 3 ->
-                areaQuadrilatero(a, b);
-            default ->
-                System.out.println("Não foi possível executar a"
-                        + "operação.");
-        }
     }
 
     private void areaCirculo(int r) {
