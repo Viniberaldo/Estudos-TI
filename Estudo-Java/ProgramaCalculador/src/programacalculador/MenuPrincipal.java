@@ -27,7 +27,7 @@ public class MenuPrincipal {
                 calculadoraPadrao.iniciar();
                 break;
             case 2:
-                CalculadoraIMC calculadoraIMC = null;
+                CalculadoraIMC calculadoraIMC = new CalculadoraIMC();
                 calculadoraIMC.iniciar();
                 break;
             case 3:

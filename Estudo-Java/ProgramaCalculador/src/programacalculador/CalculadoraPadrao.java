@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Classe pra operações padrão
  */
-public class CalculadoraPadrao {
+public class CalculadoraPadrao implements Calculadora{
 
     void iniciar() {
         System.out.println("Calculadora Padrão iniciada. Escolha a operação"
@@ -41,23 +41,28 @@ public class CalculadoraPadrao {
         }
     }
 
-    private long adicionar(long a, long b) {
+    @Override
+    public double adicionar(double a, double b) {
         return a + b;
     }
 
-    private long subtrair(long a, long b) {
+    @Override
+    public double subtrair(double a, double b) {
         return a - b;
     }
 
-    private long dividir(long a, long b) {
+    @Override
+    public double dividir(double a, double b) {
         return a / b;
     }
 
-    private long multiplicar(long a, long b) {
+    @Override
+    public double multiplicar(double a, double b) {
         return a * b;
     }
 
-    private long potenciacao(long a, int b) {
+    @Override
+    public double potenciacao(double a, int b) {
         //se b = 0 resultado = 1
         if (b == 0) {
             return 1;
@@ -70,7 +75,7 @@ public class CalculadoraPadrao {
 
         //se b > 1 resultado = 
         if (b > 1) {
-            long resultado = 1;
+            double resultado = 1;
             for (int expoente = b; expoente > 0; expoente--) {
                 resultado = resultado * a;
             }
