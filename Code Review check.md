@@ -177,45 +177,4 @@ O SOLID é um acrônimo para 5 princípios chave nos projetos Orientados a Objet
 >> Is the logging level of any logged messages appropriate? A good rule of thumb is that “ERROR” is likely to cause an alert to go off somewhere, possibly on some poor on-call person’s pager – if you do not need this message to wake someone up at 3am, consider downgrading to “INFO” or “DEBUG”. Messages inside loops, or other places that are likely to be output more than once in a row, probably don’t need to be spamming your production log files, therefore are likely to be “DEBUG” level.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fonte: https://trishagee.com/presentations/code_review_best_practice/
