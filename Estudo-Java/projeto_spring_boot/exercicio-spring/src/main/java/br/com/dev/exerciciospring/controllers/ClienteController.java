@@ -1,6 +1,6 @@
 package br.com.dev.exerciciospring.controllers;
 
-import models.Cliente;
+import br.com.dev.exerciciospring.models.Cliente;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

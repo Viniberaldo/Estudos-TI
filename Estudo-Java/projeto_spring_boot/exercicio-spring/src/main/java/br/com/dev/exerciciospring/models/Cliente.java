@@ -1,4 +1,4 @@
-package models;
+package br.com.dev.exerciciospring.models;
 
 /**
  *
