@@ -4,29 +4,38 @@ Folha de estilo do site pessoal de Vinícius Beraldo
 */
 
 /* CSS Reset */
-{
+    {
     margin: 0;
     border: 0;
     padding: 0;
 }
 
-/* Importação de fontes (Google fonts) */ 
+/* Importação de fontes (Google fonts) */
 @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;900&display=swap');
 
-body{
+body {
     font-family: 'Zen Old Mincho', serif;
     font-size: 1em;
 }
 
 /* Layout */
-.Container{
+.Container {
     margin: 0 auto;
-    background-color: #ff0908;
 }
 
 .Flex {
-    display:flex;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Botao {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 700;
+    background-color: bisque;
+    padding: 10px 40px;
+    border: 2px solid #fff
 }
 
 /* topo do site */
@@ -36,48 +45,168 @@ body{
     bottom: 10px;
 }
 
+/* Destaque */
+main {
+    height: 75vh;
+    background: url(img/banner.jpg);
+    background-size: cover;
+    color: #a520fd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2.5em;
+}
+
+main h2 {
+    font-size: 1em;
+    margin: 20px 0px 50px 0px;
+}
+
 /* phone portrait */
 
-/* phone landscape */
-@media (min-width : 576px){
-    body{
-        background-color:#0ff;
-    }
-    /* Layout */
-.Container{
-    max-width: 540px;
+/* Cabeçalho */
+header {
+    height: 60px;
 }
+
+#logo img {
+    width: 128px;
+    height: 128px;
+}
+
+#check {
+    display: none;
+}
+
+label {
+    font-size: 3em;
+    padding-right: 15px;
+}
+
+nav ul {
+    list-style: none;
+    background-color: #6462628a;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 50%;
+    transition: all 0.25s;
+}
+
+#check:checked~ul {
+    right: 0;
+}
+
+nav ul li {
+    padding: 20px;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* phone landscape */
+@media (min-width : 576px) {
+
+    /* Layout */
+    .Container {
+        max-width: 540px;
+    }
+
+    /* Destaque */
+    main h1, main h2 {
+        text-shadow: #000 0.05em 0.05em 0.05em;
+    }
 
 }
 
 
 /* tablet portrait */
-@media (min-width : 768px){
-    body{
-        background: color #ff0908;;
-    }
+@media (min-width : 768px) {
+
     /* Layout */
-.Container{
-    max-width: 720px;
+    .Container {
+        max-width: 720px;
+    }
+
+    /*Destaque*/
+    main {
+        height: 45vh;
+    }
+
+    main h1 {
+        font-size: 5.5em;
+    }
+
+    main h2 {
+        font-size: 2em;
+    }
 }
-}
+
 /* tablet landscape */
-@media (min-width : 992px){
-    body{
-        background-color:rgb(255, 201, 51);
-    }
+@media (min-width : 992px) {
+
     /* Layout */
-.Container{
-    max-width: 960px;
+    .Container {
+        max-width: 960px;
+    }
+
+    main {
+        height: 70vh;
+    }
+
+    
 }
-}
+
 /* desktop ou notebook */
-@media (min-width : 1170px){
-    body{
-        background-color:rgb(44, 23, 233);
-    }
+@media (min-width : 1170px) {
+
     /* Layout */
-.Container{
-    max-width: 1140px;
-}
+    .Container {
+        max-width: 1140px;
+    }
+
+    /* cabeçalho */
+    header {
+        height: 120px;
+    }
+
+    #logo img {
+        width: 200px;
+        height: 200px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+    label {
+        display: none;
+    }
+
+    nav ul {
+        position: static;
+        height: auto;
+        background-color: transparent;
+        margin-top: 50px;
+    }
+
+    nav ul li {
+        float: left;
+        border: 0;
+
+    }
+
+    nav ul li a {
+        color: #343538;
+    }
+
+    nav ul li a:hover {
+        color: aquamarine;
+    }
 }
